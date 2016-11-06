@@ -1,7 +1,4 @@
-require 'database_cleaner'
 require 'csv'
-
-DatabaseCleaner.clean_with :truncation
 
 puts "Creating Users"
 
