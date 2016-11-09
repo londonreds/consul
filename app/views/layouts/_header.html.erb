@@ -47,7 +47,15 @@
   <div class="subnavigation expanded">
     <div class="row">
       <div class="hide-for-small-only">
-        <%= render "shared/subnavigation" %>
+        <!-- <%= render "shared/subnavigation" %> -->
+        <div class="small-12 medium-9 column">
+          <ul>
+            <li>
+              <a class="active" accesskey="p" href="/proposals">Proposals</a>
+            </li>
+          </ul>
+        </div>
+
         <div class="small-12 medium-3 column">
           <%= yield :header_addon %>
         </div>
