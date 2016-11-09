@@ -3,3 +3,18 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+.search-results {
+	/* Don't display 'There is 1 proposal containing the term...' */
+	display: none;
+}
+
+.supports {
+	/* Hide the support mechanism (temporary) */
+	display: none;
+}
+
+.advanced-search {
+	/* Hide advanced search (it's a bit broken) */
+	display: none;
+}
