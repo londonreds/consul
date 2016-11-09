@@ -17,7 +17,7 @@ en:
       confirmation_instructions:
         confirm_link: Confirm my account
         text: 'You can confirm your email account at the following link:'
-        title: Welcome to the Open Government Portal
+        title: Welcome
         welcome: Welcome
       reset_password_instructions:
         change_link: Change my password
@@ -45,17 +45,17 @@ en:
           password_confirmation_label: Confirm password
           password_label: Password
           phone_number_label: Phone number
-          responsible_name_label: Full name of the person responsible for the collective
-          responsible_name_note: This would be the person representing the association/collective in whose name the proposals are presented
+          responsible_name_label: Full name of the person responsible for the group
+          responsible_name_note: This would be the person representing the group in whose name the proposals are presented
           submit: Register
-          title: Register as an organisation or collective
+          title: Register as a group
         success:
           back_to_index: I understand; go back to main page
-          instructions_1_html: "<b>We will contact you soon</b> to verify that you do in fact represent this collective."
+          instructions_1_html: "<b>We will contact you soon</b> to verify that you do in fact represent this group."
           instructions_2_html: While your <b>email is reviewed</b>, we have sent you a <b>link to confirm your account</b>.
-          instructions_3_html: Once confirmed, you may begin to participate as an unverified collective.
-          thank_you_html: Thank you for registering your collective on the website. It is now <b>pending verification</b>.
-          title: Registration of organisation / collective
+          instructions_3_html: Once confirmed, you may begin to participate as an unverified group.
+          thank_you_html: Thank you for registering your group on the website. It is now <b>pending verification</b>.
+          title: Registration of group
     passwords:
       edit:
         change_submit: Change my password
