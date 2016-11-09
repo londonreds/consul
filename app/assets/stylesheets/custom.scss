@@ -3,3 +3,8 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+.search-results {
+	/* Don't display 'There is 1 proposal containing the term...' */
+	display: none;
+}

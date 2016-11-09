@@ -29,8 +29,8 @@ en:
         one: "Organisation"
         other: "Organisations"
       proposal:
-        one: "Citizen proposal"
-        other: "Citizen proposals"
+        one: "Proposal"
+        other: "Proposals"
       spending_proposal:
         one: "Spending proposal"
         other: "Spending proposals"
