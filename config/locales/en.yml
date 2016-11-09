@@ -204,8 +204,8 @@ en:
         other: You have %{count} new notifications
       no_notifications: You don't have new notifications
       open: open
-      open_city_slogan_html: There are cities that are governed directly by their inhabitants, who <b>discuss</b> the topics they are concerned about, <b>propose</b> ideas to improve their lives and <b>decide</b> among themselves which ones will be carried out.
-      open_city_title: Put some copy here.
+      open_city_slogan_html: This is your space to <b>submit proposals</b> for Momentum's conference, <b>discuss</b> the proposals and <b>decide</b> which ones you support.
+      open_city_title: Have your say
       open_data: Open data
       open_gov: Momentum
       proposals: Proposals
@@ -580,17 +580,17 @@ en:
       not_voting_allowed: Voting phase is closed
   welcome:
     debates:
-      description: For meeting, discussing and sharing the things that matter to us in our city.
-      title: Debates
+      description: Share your ideas for the future of Momentum in discussion with other members.
+      title: Debate
     decide:
-      description: The public decides if it accepts or rejects the most supported proposals.
-      title: You decide
+      description: Momentum's conference will vote on the proposals, alongside an online vote.
+      title: Decide
     do:
-      description: If the proposal is accepted by the majority, the City Council accepts it as its own and it gets done.
-      title: It gets done
+      description: The proposals that pass will shape Momentum as it continues to develop.
+      title: Done
     proposal:
-      description: Open space for member proposals about the kind of city we want to live in.
-      title: You propose
+      description: Make your own proposals for the conference and gather support for them.
+      title: Propose
     verification:
       i_dont_have_an_account: I don't have an account
       i_have_an_account: I already have an account
