@@ -2,8 +2,8 @@
 en:
   account:
     show:
-      change_credentials_link: Change my credentials
-      email_on_comment_label: Notify me by email when someone comments on my proposals or debates
+      change_credentials_link: Change my password
+      email_on_comment_label: Notify me by email when someone comments on my proposals
       email_on_comment_reply_label: Notify me by email when someone replies to my comments
       erase_account_link: Erase my account
       finish_verification: Complete verification
@@ -14,19 +14,19 @@ en:
       phone_number_label: Phone number
       public_activity_label: Keep my list of activities public
       save_changes_submit: Save changes
-      subscription_to_website_newsletter_label: Receive by email website relevant information
+      subscription_to_website_newsletter_label: Receive relevant information by email
       email_on_direct_message_label: Receive emails about direct messages
       email_digest_label: Receive a summary of proposal notifications
       official_position_badge_label: Show official position badge
       title: My account
-      user_permission_debates: Participate on debates
+      user_permission_debates: Participate in debates
       user_permission_info: With your account you can...
       user_permission_proposal: Create new proposals
       user_permission_support_proposal: Support proposals
       user_permission_title: Participation
-      user_permission_verify: To perform all the actions verify your account.
-      user_permission_verify_info: "* Only for users on Census."
-      user_permission_votes: Participate on final voting
+      user_permission_verify: " "
+      user_permission_verify_info: " "
+      user_permission_votes: Participate in final voting
       username_label: Username
       verified_account: Account verified
       verify_my_account: Verify my account
@@ -278,7 +278,7 @@ en:
       geozone: Scope of operation
       proposal_external_url: Link to additional documentation
       proposal_question: Proposal question
-      proposal_question_example_html: Must be summarised in one question with a Yes or No answer. <em>E.g. 'Do you agree with the pedestrianisation of Calle Mayor?'</em>
+      proposal_question_example_html: Please summarise your proposal in one question.
       proposal_responsible_name: Full name of the person submitting the proposal
       proposal_responsible_name_note: "(individually or as representative of a collective; will not be displayed publically)"
       proposal_summary: Proposal summary
@@ -604,7 +604,7 @@ en:
       user_permission_proposal: Create new proposals
       user_permission_support_proposal: Support proposals*
       user_permission_verify: To perform all the actions verify your account.
-      user_permission_verify_info: "* Only for users on Census."
+      user_permission_verify_info: " "
       user_permission_verify_my_account: Verify my account
       user_permission_votes: Participate on final voting
   omniauth:

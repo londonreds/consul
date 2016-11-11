@@ -30,7 +30,7 @@ class Proposal < ActiveRecord::Base
   validates :responsible_name, length: { in: 6..Proposal.responsible_name_max_length }
   validates :retired_reason, inclusion: {in: RETIRE_OPTIONS, allow_nil: true}
 
-  validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
+  validates :terms_of_service, acceptance: { allow_nil: true }, on: :create
 
   before_validation :set_responsible_name
 

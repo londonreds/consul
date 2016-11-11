@@ -42,11 +42,6 @@
       <%= f.text_field :external_url, placeholder: t("proposals.form.proposal_external_url"), label: false %>
     </div>
 
-    <div class="small-12 medium-6 column">
-      <%= f.label :geozone_id,  t("proposals.form.geozone") %>
-      <%= f.select :geozone_id, geozone_select_options, {include_blank: t("geozones.none"), label: false} %>
-    </div>
-
     <div class="small-12 column">
       <%= f.label :tag_list, t("proposals.form.tags_label") %>
       <p class="note"><%= t("proposals.form.tags_instructions") %></p>
@@ -72,19 +67,6 @@
         <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
       </div>
     <% end %>
-
-    <div class="small-12 column">
-      <% if @proposal.new_record? %>
-        <%= f.label :terms_of_service do %>
-          <%= f.check_box :terms_of_service, title: t('form.accept_terms_title'), label: false %>
-          <span class="checkbox">
-            <%= t("form.accept_terms",
-                policy: link_to(t("form.policy"), "/privacy", target: "blank"),
-                conditions: link_to(t("form.conditions"), "/conditions", target: "blank")).html_safe %>
-          </span>
-        <% end %>
-      <% end %>
-    </div>
 
     <div class="actions small-12 column">
       <%= f.submit(class: "button", value: t("proposals.#{action_name}.form.submit_button")) %>
