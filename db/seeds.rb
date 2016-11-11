@@ -5,13 +5,21 @@ if Administrator.count == 0 && !Rails.env.test?
   admin.create_administrator
 end
 
+# Create Momentum's categories
+puts "Creating Categories"
+
+ActsAsTaggableOn::Tag.create!(name:  "Ethics", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Politics", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Structure", featured: true, kind: "category")
+
+
 # Names for the moderation console, as a hint for moderators
 # to know better how to assign users with official positions
-Setting["official_level_1_name"] = "Empleados públicos"
-Setting["official_level_2_name"] = "Organización Municipal"
-Setting["official_level_3_name"] = "Directores generales"
-Setting["official_level_4_name"] = "Concejales"
-Setting["official_level_5_name"] = "Alcaldesa"
+Setting["official_level_1_name"] = "A"
+Setting["official_level_2_name"] = "B"
+Setting["official_level_3_name"] = "C"
+Setting["official_level_4_name"] = "D"
+Setting["official_level_5_name"] = "E"
 
 # Max percentage of allowed anonymous votes on a debate
 Setting["max_ratio_anon_votes_on_debates"] = 50
@@ -26,7 +34,7 @@ Setting["max_votes_for_proposal_edit"] = 1000
 Setting['comments_body_max_length'] = 1000
 
 # Prefix for the Proposal codes
-Setting["proposal_code_prefix"] = 'MAD'
+Setting["proposal_code_prefix"] = 'MM'
 
 # Number of votes needed for proposal success
 Setting["votes_for_proposal_success"] = 53726
@@ -49,21 +57,21 @@ Setting["youtube_handle"] = nil
 Setting["blog_url"] = nil
 
 # Public-facing URL of the app.
-Setting["url"] = "http://example.com"
+Setting["url"] = "http://democracy.peoplesmomentum.com"
 
 # Consul installation's organization name
-Setting["org_name"] = "Consul"
+Setting["org_name"] = "Momentum"
 
 # Consul installation place name (City, Country...)
-Setting["place_name"] = "Consul-land"
+Setting["place_name"] = "Momentum"
 
 # Feature flags
-Setting['feature.debates'] = true
-Setting['feature.spending_proposals'] = true
-Setting['feature.twitter_login'] = true
-Setting['feature.facebook_login'] = true
-Setting['feature.google_login'] = true
-Setting['feature.public_stats'] = true
+Setting['feature.debates'] = false
+Setting['feature.spending_proposals'] = false
+Setting['feature.twitter_login'] = false
+Setting['feature.facebook_login'] = false
+Setting['feature.google_login'] = false
+Setting['feature.public_stats'] = false
 
 # Spending proposals feature flags
 Setting['feature.spending_proposal_features.voting_allowed'] = true
