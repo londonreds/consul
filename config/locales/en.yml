@@ -303,6 +303,7 @@ en:
         most_commented: most commented
         relevance: relevance
         archival_date: archived
+        random: random order
       retired_proposals: Retired proposals
       retired_proposals_link: "Proposals retired by the author"
       retired_links:

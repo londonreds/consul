@@ -12,7 +12,12 @@ class ProposalsController < ApplicationController
 
   invisible_captcha only: [:create, :update], honeypot: :subtitle
 
-  has_orders %w{hot_score confidence_score created_at relevance archival_date}, only: :index
+  # controls proposal sorting options
+  # whichever you put first becomes the default
+  # possible values: hot_score confidence_score created_at relevance archival_date random and maybe more?
+  has_orders %w{random created_at hot_score}, only: :index
+
+  # controls comment sorting options
   has_orders %w{most_voted newest oldest}, only: :show
 
   load_and_authorize_resource
