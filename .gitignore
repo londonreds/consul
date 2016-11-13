@@ -29,5 +29,3 @@
 # Mac finder artifacts
 .DS_Store
 .ruby-gemset
-
-config/secrets.yml
