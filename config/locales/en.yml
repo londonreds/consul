@@ -568,7 +568,7 @@ en:
     disagree: I disagree
     organizations: Organisations are not permitted to vote
     signin: Sign in
-    signup: Sign up
+    signup: Join Momentum
     supports: Supports
     unauthenticated: You must %{signin} or %{signup} to continue.
     verified_only: Only verified users can vote on proposals; %{verify_account}.

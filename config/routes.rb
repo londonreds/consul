@@ -5,7 +5,12 @@ Rails.application.routes.draw do
                        sessions: 'users/sessions',
                        confirmations: 'users/confirmations',
                        omniauth_callbacks: 'users/omniauth_callbacks'
-                     }
+                     }, :skip => [:registrations]
+   as :user do
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+      put 'users' => 'devise/registrations#destroy', :as => 'user_registration'
+  end
+
   devise_for :organizations, class_name: 'User',
              controllers: {
                registrations: 'organizations/registrations',
@@ -19,11 +24,9 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     patch '/user/confirmation', to: 'users/confirmations#update', as: :update_user_confirmation
-    get '/user/registrations/check_username', to: 'users/registrations#check_username'
-    get 'users/sign_up/success', to: 'users/registrations#success'
     get 'users/registrations/delete_form', to: 'users/registrations#delete_form'
-    delete 'users/registrations', to: 'users/registrations#delete'
     get :finish_signup, to: 'users/registrations#finish_signup'
+    delete 'users/registrations', to: 'users/registrations#delete'
     patch :do_finish_signup, to: 'users/registrations#do_finish_signup'
   end
 

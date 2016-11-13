@@ -36,7 +36,7 @@ en:
       login_items:
         login: Sign in
         logout: Sign out
-        signup: Register
+        signup: Join Momentum
     organizations:
       registrations:
         new:
