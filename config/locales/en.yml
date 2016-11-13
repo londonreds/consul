@@ -338,7 +338,7 @@ en:
     notice:
       retired: Proposal retired
     proposal:
-      already_supported: You have already supported this proposal. Share it!
+      already_supported: You have supported this proposal. Share it!
       comments:
         one: 1 comment
         other: "%{count} comments"

@@ -9,12 +9,12 @@
 	display: none;
 }
 
-.supports {
-	/* Hide the support mechanism (temporary) */
+.advanced-search {
+	/* Hide advanced search (it's a bit broken) */
 	display: none;
 }
 
-.advanced-search {
-	/* Hide advanced search (it's a bit broken) */
+.total-supports abbr, .progress {
+	/* Hide number of supports needed and progress meter */
 	display: none;
 }
