@@ -63,7 +63,7 @@
     <div class="not-logged" style='display:none'>
       <%= t("votes.comment_unauthenticated",
         signin: link_to(t("votes.signin"), new_user_session_path),
-        signup: link_to(t("votes.signup"), new_user_registration_path)).html_safe %>
+        signup: link_to(t("votes.signup"), "http://join.peoplesmomentum.com/")).html_safe %>
     </div>
   <% end %>
 </div>
