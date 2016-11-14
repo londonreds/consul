@@ -1,7 +1,10 @@
 require 'csv'
 require 'securerandom'
+require 'open-uri'
 
 # invoke with eg. rake db:m_seed csv=/consul/db/m.csv
+# or rake db:m_seed csv=http://www.example.com/file.csv
+
 
 puts "Creating Users"
 
@@ -12,7 +15,8 @@ def create_user(email, username)
   # bug: one username collision causes script to terminate
 end
 
-members = CSV.read(ENV['csv'])
+csv_data = open(ENV['csv'])
+members = CSV.parse(csv_data.read)
 
 members.each do |email, firstname, lastname|
   
@@ -22,7 +26,7 @@ members.each do |email, firstname, lastname|
   level = 3
   user.update(verified_at: Time.now, document_number: Faker::Number.number(10) ) # seems to need fake document number to allow proposal creation 
 
-  # todo: email the user
+  # todo: email the user (use 'forgot password' links)
 
 end
 
