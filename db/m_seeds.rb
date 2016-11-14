@@ -24,7 +24,7 @@ members.each do |email, firstname, lastname|
 
   user = create_user(email, username) 
   level = 3
-  user.update(verified_at: Time.now, document_number: Faker::Number.number(10) ) # seems to need fake document number to allow proposal creation 
+  user.update(verified_at: Time.now, document_number: 1111111111 ) # seems to need fake document number to allow proposal creation 
 
   # todo: email the user (use 'forgot password' links)
 
