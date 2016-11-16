@@ -6,9 +6,11 @@ Rails.application.routes.draw do
                        confirmations: 'users/confirmations',
                        omniauth_callbacks: 'users/omniauth_callbacks'
                      }, :skip => [:registrations]
-   as :user do
-      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-      put 'users' => 'devise/registrations#destroy', :as => 'user_registration'
+
+  as :user do
+     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+     put '/users(.:format)' => 'devise/registrations#update', as: 'user_registration'
+     patch '/users(.:format)' => 'devise/registrations#update'
   end
 
   devise_for :organizations, class_name: 'User',
