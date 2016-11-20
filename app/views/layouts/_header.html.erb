@@ -7,9 +7,9 @@
 
       <%= link_to 'Momentum', root_path, class: "logo show-for-small-only" %>
 
-      <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
+      <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right" onclick="$('#responsive-menu').toggle()">
         <span class="menu-icon dark" data-toggle></span>
-        <%= t("application.menu")%>
+        <%= t("application.menu")%> &#9776;
       </span>
 
       <div id="responsive-menu">
@@ -47,29 +47,7 @@
   <div class="subnavigation expanded">
     <div class="row">
       <div class="hide-for-small-only">
-        <!-- <%= render "shared/subnavigation" %> -->
-        <div class="small-12 medium-9 column">
-          <ul>
-            <li>
-              <a href="/">About</a>
-            </li>
-            <li>
-              <a href="/proposals">All Proposals</a>
-            </li>
-            <li>
-              <a href="/proposals?search=Aims">Aims</a>
-            </li>
-            <li>
-              <a href="/proposals?search=Ethics">Ethics</a>
-            </li>
-            <li>
-              <a href="/proposals?search=Structure">Structure</a>
-            </li>
-            <!-- todo: add class="active" back to current page -->
-
-          </ul>
-        </div>
-
+        <%= render "shared/subnavigation" %>
         <div class="small-12 medium-3 column">
           <%= yield :header_addon %>
         </div>
