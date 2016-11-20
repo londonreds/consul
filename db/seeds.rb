@@ -9,7 +9,7 @@ end
 puts "Creating Categories"
 
 ActsAsTaggableOn::Tag.create!(name:  "Ethics", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Politics", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Aims", featured: true, kind: "category")
 ActsAsTaggableOn::Tag.create!(name:  "Structure", featured: true, kind: "category")
 
 

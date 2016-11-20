@@ -266,7 +266,7 @@ en:
       retired_reason_label: Reason to retire the proposal
       retired_reason_blank: Choose an option
       retired_explanation_label: Explanation
-      retired_explanation_placeholder: Explain shortly why you think this proposal should not receive more supports
+      retired_explanation_placeholder: Explain briefly why you think this proposal should not receive more supporters
       submit_button: Retire proposal
     retire_options:
       duplicated: Duplicated
@@ -348,12 +348,12 @@ en:
       support: Support
       support_title: Support this proposal
       supports:
-        one: 1 support
-        other: "%{count} supports"
-        zero: No supports
-      supports_necessary: "%{number} supports needed"
+        one: 1 supporter
+        other: "%{count} supporters"
+        zero: No supporters yet
+      supports_necessary: "%{number} supporters needed"
       total_percent: 100%
-      archived: "This proposal has been archived and can't collect supports."
+      archived: "This proposal has been archived and can't collect supporters."
     show:
       author_deleted: User deleted
       code: 'Proposal code:'
@@ -365,22 +365,22 @@ en:
       edit_proposal_link: Edit
       flag: This proposal has been flagged as inappropriate by several users.
       login_to_comment: You must %{signin} or %{signup} to leave a comment.
-      notifications_tab: Notifications
-      retired_warning: "The author considers this proposal should not receive more supports."
+      notifications_tab: Updates sent to supporters
+      retired_warning: "The author considers this proposal should not receive more supporters."
       retired_warning_link_to_explanation: Read the explanation before voting for it.
       retired: Proposal retired by the author
       share: Share
       send_notification: Message supporters
-      no_notifications: "This proposal has any notifications."
+      no_notifications: "This proposal has no updates for supporters yet."
     update:
       form:
         submit_button: Save changes
   proposal_ballots:
     title: "Votings"
-    description_html: "The following member proposals that have reached the <strong>required supports</strong> and will be voted."
+    description_html: "The following member proposals that have reached the <strong>required supporters</strong> and will be voted."
     date_title: "Dates of participation"
     date: "Soon we'll announce the date of vote these proposals."
-    successfull: "This proposal has reached the required supports and will be voted in the %{voting}."
+    successfull: "This proposal has reached the required supporters and will be voted in the %{voting}."
     voting: "next voting"
     featured_title: "#NextVoting"
     nothing_to_vote: "There is nothing to vote at the moment."
@@ -388,11 +388,11 @@ en:
     button: "I want to decide"
   proposal_notifications:
     new:
-      title: "Send message"
+      title: "Send update to supporters"
       title_label: "Title"
       body_label: "Message"
       submit_button: "Send message"
-      info_about_receivers_html: "This message will be send to <strong>%{count} people</strong> and it will be visible in %{proposal_page}.<br> Message are not sent immediately, users will receive periodically an email with all proposal notifications."
+      info_about_receivers_html: "This message will be sent to the <strong>%{count} supporters of your proposal</strong> and it will also be visible on %{proposal_page}.<br> Messages are not always sent immediately - users will receive one email with all their proposal updates."
       proposal_page: "the proposal's page"
     show:
       back: "Go back to my activity"
@@ -569,7 +569,7 @@ en:
     organizations: Organisations are not permitted to vote
     signin: Sign in
     signup: Join Momentum
-    supports: Supports
+    supports: Supporters
     unauthenticated: You must %{signin} or %{signup} to continue.
     verified_only: Only verified users can vote on proposals; %{verify_account}.
     verify_account: verify your account

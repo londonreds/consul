@@ -64,7 +64,7 @@ en:
         title: Change your password
       new:
         email_label: Email
-        send_submit: Send instructions
+        send_submit: Reset password
         title: Forgotten password?
     sessions:
       new:
@@ -75,7 +75,7 @@ en:
         title: Sign in
     shared:
       links:
-        login: Enter
+        login: Log in
         new_confirmation: Haven't received instructions to activate your account?
         new_password: Forgotten your password?
         new_unlock: Haven't received unlocking instructions?
