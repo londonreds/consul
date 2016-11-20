@@ -6,4 +6,7 @@ namespace :db do
   task m_seed: :environment do
     load(Rails.root.join("db", "m_seeds.rb"))
   end
+  task m_update: :environment do
+    load(Rails.root.join("db", "m_update.rb"))
+  end
 end
