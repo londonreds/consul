@@ -64,6 +64,8 @@ gem 'browser'
 gem 'turnout', '~> 2.4.0'
 gem 'redcarpet'
 
+gem 'mailgun_rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
