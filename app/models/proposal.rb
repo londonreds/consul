@@ -7,6 +7,8 @@ class Proposal < ActiveRecord::Base
   include Searchable
   include Filterable
 
+  has_paper_trail
+
   acts_as_votable
   acts_as_paranoid column: :hidden_at
   include ActsAsParanoidAliases

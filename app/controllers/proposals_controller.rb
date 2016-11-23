@@ -10,6 +10,8 @@ class ProposalsController < ApplicationController
   before_action :load_geozones, only: [:edit, :map, :summary]
   before_action :authenticate_user!, except: [:index, :show, :map, :summary]
 
+  before_action :set_paper_trail_whodunnit
+
   invisible_captcha only: [:create, :update], honeypot: :subtitle
 
   # controls proposal sorting options
