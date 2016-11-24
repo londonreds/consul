@@ -1,17 +1,16 @@
 # coding: utf-8
 # Default admin user (change password after first deploy to a server!)
 if Administrator.count == 0 && !Rails.env.test?
-  admin = User.create!(username: 'admin', email: 'admin@consul.dev', password: '12345678', password_confirmation: '12345678', confirmed_at: Time.now, terms_of_service: "1")
+  admin = User.create!(username: 'admin', email: 'admin@consul.dev', password: 'abcdabcd', password_confirmation: 'abcdabcd', confirmed_at: Time.now, terms_of_service: "1")
   admin.create_administrator
 end
 
 # Create Momentum's categories
 puts "Creating Categories"
 
+ActsAsTaggableOn::Tag.create!(name:  "Purpose", featured: true, kind: "category")
+ActsAsTaggableOn::Tag.create!(name:  "Organisation", featured: true, kind: "category")
 ActsAsTaggableOn::Tag.create!(name:  "Ethics", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Aims", featured: true, kind: "category")
-ActsAsTaggableOn::Tag.create!(name:  "Structure", featured: true, kind: "category")
-
 
 # Names for the moderation console, as a hint for moderators
 # to know better how to assign users with official positions
@@ -28,7 +27,7 @@ Setting["max_ratio_anon_votes_on_debates"] = 50
 Setting["max_votes_for_debate_edit"] = 1000
 
 # Max votes where a proposal is still editable
-Setting["max_votes_for_proposal_edit"] = 1000
+Setting["max_votes_for_proposal_edit"] = 50000
 
 # Max length for comments
 Setting['comments_body_max_length'] = 1000
@@ -37,7 +36,7 @@ Setting['comments_body_max_length'] = 1000
 Setting["proposal_code_prefix"] = 'MM'
 
 # Number of votes needed for proposal success
-Setting["votes_for_proposal_success"] = 53726
+Setting["votes_for_proposal_success"] = 50000
 
 # Months to archive proposals
 Setting["months_to_archive_proposals"] = 12
@@ -57,10 +56,10 @@ Setting["youtube_handle"] = nil
 Setting["blog_url"] = nil
 
 # Public-facing URL of the app.
-Setting["url"] = "http://democracy.peoplesmomentum.com"
+Setting["url"] = "http://mxv.peoplesmomentum.com"
 
 # Consul installation's organization name
-Setting["org_name"] = "Momentum"
+Setting["org_name"] = "MxV"
 
 # Consul installation place name (City, Country...)
 Setting["place_name"] = "Momentum"
@@ -74,7 +73,7 @@ Setting['feature.google_login'] = false
 Setting['feature.public_stats'] = false
 
 # Spending proposals feature flags
-Setting['feature.spending_proposal_features.voting_allowed'] = true
+Setting['feature.spending_proposal_features.voting_allowed'] = false
 
 # Banner styles
 Setting['banner-style.banner-style-one']   = "Banner style 1"
@@ -87,5 +86,5 @@ Setting['banner-img.banner-img-two']   = "Banner image 2"
 Setting['banner-img.banner-img-three'] = "Banner image 3"
 
 # Proposal notifications
-Setting['proposal_notification_minimum_interval_in_days'] = 3
+Setting['proposal_notification_minimum_interval_in_days'] = 1
 Setting['direct_message_max_per_day'] = 3

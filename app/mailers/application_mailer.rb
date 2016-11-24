@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
   helper :settings
-  default from: "Consul <no-reply@consul.es>"
+  default from: "Momentum <digital@peoplesmomentum.com>"
   layout 'mailer'
 end

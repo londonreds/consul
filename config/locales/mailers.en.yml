@@ -1,7 +1,7 @@
 ---
 en:
   mailers:
-    no_reply: "This message was sent from an email address that does not accept replies."
+    no_reply: 'This email was sent to you because you are a member of Momentum. To stop receiving emails from Momentum, click here to unsubscribe: http://www.peoplesmomentum.com/unsubscribe  Promoted by Jeremy for Labour Ltd at 10 Melton St, London, NW1 2EJ.'
     comment:
       hi: Hi
       new_comment_by_html: There is a new comment from <b>%{commenter}</b>

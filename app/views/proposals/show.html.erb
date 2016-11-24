@@ -81,8 +81,6 @@
           </div>
         <% end %>
 
-        <h4><%= @proposal.question %></h4>
-
         <% if @proposal.retired? %>
           <div id="retired_explanation" class="callout">
             <h2><%= t('proposals.show.retired') %>: <%= t("proposals.retire_options.#{@proposal.retired_reason}") unless @proposal.retired_reason == 'other' %></h2>
