@@ -1,0 +1,27 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "nginx",
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "nginx"
+        }
+      },
+      "spec": {
+        "containers": [{
+          "name": "consul-nginx",
+          "image": "${CONSUL_NGINX_IMAGE}",
+          "ports": [{
+            "containerPort": 80
+          }]
+        }]
+      }
+    }
+  }
+}

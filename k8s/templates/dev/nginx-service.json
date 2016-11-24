@@ -1,0 +1,23 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "nginx",
+    "labels": {
+      "name": "nginx"
+    },
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "ports": [{
+      "protocol": "TCP",
+      "port": 80,
+      "targetPort": 80,
+      "nodePort": ${MINIKUBE_PORT}
+    }],
+    "selector": {
+      "name": "nginx"
+    },
+    "type": "NodePort"
+  }
+}

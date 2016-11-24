@@ -32,6 +32,9 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # this means our production assets can be pre-compiled and served from a different location
+  config.assets.prefix = "/dev-assets"
+
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true

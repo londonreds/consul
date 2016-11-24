@@ -1,0 +1,51 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "worker",
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "worker"
+        }
+      },
+      "spec": {
+        "containers": [{
+          "name": "consul-worker",
+          "image": "${CONSUL_APP_IMAGE}",
+          "imagePullPolicy": "Always",
+          "command": [
+            "bin/bundle",
+            "exec",
+            "rake",
+            "tools:stdoutlogger",
+            "jobs:work"
+          ],
+          "env": [{
+            "name": "POSTGRES_SERVICE_USER",
+            "value": "${POSTGRES_SERVICE_USER}"
+          }, {
+            "name": "POSTGRES_SERVICE_PASSWORD",
+            "value": "${POSTGRES_SERVICE_PASSWORD}"
+          }, {
+            "name": "POSTGRES_SERVICE_DATABASE",
+            "value": "${POSTGRES_SERVICE_DATABASE}"
+          }, {
+            "name": "RAILS_ENV",
+            "value": "production"
+          }, {
+            "name": "MAILGUN_API_DOMAIN",
+            "value": "${MAILGUN_API_DOMAIN}"
+          }, {
+            "name": "MAILGUN_API_KEY",
+            "value": "${MAILGUN_API_KEY}"
+          }]
+        }]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "postgres-master",
+    "labels": {
+      "name": "postgres-master"
+    },
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "containers": [{
+      "name": "postgres-master",
+      "image": "${POSTGRES_DOCKER_IMAGE}",
+      "imagePullPolicy": "Always",
+      "command": [
+        "/docker-entrypoint.sh",
+        "postgres",
+        "-c",
+        "shared_buffers=512MB",
+        "-c",
+        "effective_cache_size=1536MB",
+        "-c",
+        "max_connections=500"
+      ],
+      "ports": [{
+        "containerPort": 5432,
+        "protocol": "TCP"
+      }],
+      "env": [{
+        "name": "POSTGRES_USER",
+        "value": "${POSTGRES_SERVICE_USER}"
+      }, {
+        "name": "POSTGRES_PASSWORD",
+        "value": "${POSTGRES_SERVICE_PASSWORD}"
+      }, {
+        "name": "PGDATA",
+        "value": "/var/lib/postgresql/data/pgdata"
+      }],
+      "volumeMounts": [{
+        "mountPath": "/var/lib/postgresql/data",
+        "name": "pgdata",
+        "readOnly": false
+      }],
+      "resources": {
+        "requests": {
+          "memory": "2560M"
+        }
+      }
+    }],
+    "volumes": [{
+      "name": "pgdata",
+      "persistentVolumeClaim": {
+        "claimName": "postgres-master-volume-claim"
+      }
+    }]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "cron",
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "cron"
+        }
+      },
+      "spec": {
+        "containers": [{
+          "name": "consul-cron",
+          "image": "${CONSUL_APP_IMAGE}",
+          "command": [
+            "bash",
+            "scripts/cronrun.sh"
+          ],
+          "env": [{
+            "name": "POSTGRES_SERVICE_USER",
+            "value": "${POSTGRES_SERVICE_USER}"
+          }, {
+            "name": "POSTGRES_SERVICE_PASSWORD",
+            "value": "${POSTGRES_SERVICE_PASSWORD}"
+          }, {
+            "name": "POSTGRES_SERVICE_DATABASE",
+            "value": "${POSTGRES_SERVICE_DATABASE}"
+          }, {
+            "name": "RAILS_ENV",
+            "value": "production"
+          }]
+        }]
+      }
+    }
+  }
+}

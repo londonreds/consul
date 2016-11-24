@@ -1,0 +1,7 @@
+# this Dockerfile is at the top level because it needs to include the
+# public/assets folder
+FROM nginx
+MAINTAINER kaiyadavenport@gmail.com
+ADD ./scripts/nginxrun.sh /run.sh
+ADD ./public/assets /www/assets
+ENTRYPOINT ["bash", "/run.sh"]

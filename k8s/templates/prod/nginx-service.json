@@ -1,0 +1,22 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "nginx",
+    "labels": {
+      "name": "nginx"
+    },
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "ports": [{
+      "protocol": "TCP",
+      "port": 80,
+      "targetPort": 80
+    }],
+    "selector": {
+      "name": "nginx"
+    },
+    "type": "ClusterIP"
+  }
+}

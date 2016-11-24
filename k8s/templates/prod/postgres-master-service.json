@@ -1,0 +1,24 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "postgres",
+    "labels": {
+      "name": "postgres"
+    },
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "ports": [{
+      "protocol": "TCP",
+      "port": 5432,
+      "targetPort": 5432,
+      "nodePort": 0
+    }],
+    "selector": {
+      "name": "postgres-master"
+    },
+    "type": "ClusterIP",
+    "sessionAffinity": "None"
+  }
+}

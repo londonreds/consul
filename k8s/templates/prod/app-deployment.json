@@ -1,0 +1,64 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "app",
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "replicas": 5,
+    "strategy": {
+      "rollingUpdate": {
+        "maxUnavailable": 3
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "app"
+        }
+      },
+      "spec": {
+        "containers": [{
+          "name": "consul-app",
+          "image": "${CONSUL_APP_IMAGE}",
+          "imagePullPolicy": "Always",
+          "command": [
+            "bash",
+            "scripts/run.sh"
+          ],
+          "ports": [{
+            "containerPort": 80
+          }],
+          "env": [{
+            "name": "POSTGRES_SERVICE_USER",
+            "value": "${POSTGRES_SERVICE_USER}"
+          }, {
+            "name": "POSTGRES_SERVICE_PASSWORD",
+            "value": "${POSTGRES_SERVICE_PASSWORD}"
+          }, {
+            "name": "POSTGRES_SERVICE_DATABASE",
+            "value": "${POSTGRES_SERVICE_DATABASE}"
+          }, {
+            "name": "RAILS_ENV",
+            "value": "production"
+          }, {
+            "name": "FORCE_SSL",
+            "value": "1"
+          }, {
+            "name": "SECRET_KEY_BASE",
+            "value": "${SECRET_KEY_BASE}"
+          }],
+          "readinessProbe": {
+            "httpGet": {
+              "path": "/",
+              "port": 80
+            },
+            "initialDelaySeconds": 10,
+            "timeoutSeconds": 5
+          }
+        }]
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:9.6.1
+    container_name: consul_postgres
+    ports:
+      - "55432:5432"
+    volumes:
+      - .private/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=consul
+      - POSTGRES_PASSWORD=consul
+  app:
+    build: .
+    command: bash scripts/run.sh
+    container_name: consul_app
+    depends_on:
+      - postgres
+    links:
+      - "postgres:postgres"
+    ports:
+      - "3000:80"
+    # only map the code folders into the container
+    # otherwise the /tmp folder (pids etc) is multi-writer
+    volumes:
+      - ./app:/app/app
+      - ./bin:/app/bin
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./lib:/app/lib
+      - ./public:/app/public
+      - ./scripts:/app/scripts
+      - ./spec:/app/spec
+      - ./vendor:/app/vendor
+    environment:
+      - POSTGRES_SERVICE_HOST=postgres
+      - POSTGRES_SERVICE_USER=consul
+      - POSTGRES_SERVICE_PASSWORD=consul
+      - POSTGRES_SERVICE_DATABASE=consul

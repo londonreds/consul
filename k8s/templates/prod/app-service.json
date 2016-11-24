@@ -1,0 +1,23 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "app",
+    "labels": {
+      "name": "app"
+    },
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "ports": [{
+      "protocol": "TCP",
+      "port": 80,
+      "targetPort": 80,
+      "nodePort": 0
+    }],
+    "selector": {
+      "name": "app"
+    },
+    "type": "ClusterIP"
+  }
+}
