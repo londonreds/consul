@@ -9,4 +9,7 @@ namespace :db do
   task m_update: :environment do
     load(Rails.root.join("db", "m_update.rb"))
   end
+  task reset_pw: :environment do
+    load(Rails.root.join("db", "reset_pw.rb"))
+  end
 end
