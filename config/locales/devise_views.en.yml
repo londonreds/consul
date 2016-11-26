@@ -61,11 +61,11 @@ en:
         change_submit: Change my password
         password_confirmation_label: Confirm new password
         password_label: New password
-        title: Change your password
+        title: Please choose your password
       new:
         email_label: Email
         send_submit: Reset password
-        title: Forgotten password?
+        title: Reset password
     sessions:
       new:
         email_label: Email

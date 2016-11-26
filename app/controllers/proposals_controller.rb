@@ -17,7 +17,7 @@ class ProposalsController < ApplicationController
   # controls proposal sorting options
   # whichever you put first becomes the default
   # possible values: hot_score confidence_score created_at relevance archival_date random and maybe more?
-  has_orders %w{random created_at hot_score}, only: :index
+  has_orders %w{random created_at hot_score confidence_score}, only: :index
 
   # controls comment sorting options
   has_orders %w{most_voted newest oldest}, only: :show

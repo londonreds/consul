@@ -43,9 +43,13 @@
           }, {
             "name": "MAILGUN_API_KEY",
             "value": "${MAILGUN_API_KEY}"
+          }, {
+            "name": "SERVER_NAME",
+            "value": "${CONSUL_APP_DOMAIN}"
           }]
         }]
       }
     }
   }
 }
+

@@ -95,7 +95,7 @@ en:
         one: " with topic '%{topic}'"
         other: " with topic '%{topic}'"
       orders:
-        confidence_score: highest rated
+        confidence_score: most supporters
         created_at: newest
         hot_score: most active
         most_commented: most commented
@@ -297,7 +297,7 @@ en:
         one: " with topic '%{topic}'"
         other: " with topic '%{topic}'"
       orders:
-        confidence_score: highest rated
+        confidence_score: most supporters
         created_at: newest
         hot_score: most active
         most_commented: most commented

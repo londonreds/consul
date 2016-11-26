@@ -33,6 +33,7 @@ services:
       - ./spec:/app/spec
       - ./vendor:/app/vendor
     environment:
+      - CLEAN_UP=1
       - POSTGRES_SERVICE_HOST=postgres
       - POSTGRES_SERVICE_USER=consul
       - POSTGRES_SERVICE_PASSWORD=consul

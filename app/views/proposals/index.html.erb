@@ -64,9 +64,13 @@
       <aside class="margin-bottom">
         <%= link_to t("proposals.index.start_proposal"), new_proposal_path, class: 'button expanded' %>
         <% if params[:retired].blank? %>
-
-            <%= render 'categories' %><br />
-            <%= render 'popular' %>
+            <div class="sidebar-divider"></div>
+            <h3 class="sidebar-title">Categories</h3>
+            <br />
+            <p><a href="/proposals?tag=Purpose"><b>Purpose</b></a> proposals are about Momentum's fundamental role and objectives.</p>
+            <p><a href="/proposals?tag=Structure"><b>Structure</b></a> proposals are about how Momentum organises.</p>
+            <p><a href="/proposals?tag=Ethics"><b>Ethics</b></a> proposals are about Momentum's rules and conduct.</p>
+            <p>Read more in the <a href="/guidelines">guidelines.</a></p>
           <% end %>
           <%= render 'retired' %>
       </aside>

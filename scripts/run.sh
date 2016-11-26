@@ -7,4 +7,8 @@ set -e
 
 export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+if [ -n "${CLEAN_UP}" ]; then
+	rm -rf /app/tmp/pids
+fi
+
 ${DIR}/../bin/rails s -p 80 -b '0.0.0.0'

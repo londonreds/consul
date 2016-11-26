@@ -33,6 +33,9 @@
           }, {
             "name": "RAILS_ENV",
             "value": "production"
+          }, {
+            "name": "SERVER_NAME",
+            "value": "${CONSUL_APP_DOMAIN}"
           }]
         }]
       }

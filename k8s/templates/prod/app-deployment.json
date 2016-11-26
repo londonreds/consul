@@ -48,6 +48,9 @@
           }, {
             "name": "SECRET_KEY_BASE",
             "value": "${SECRET_KEY_BASE}"
+          }, {
+            "name": "SERVER_NAME",
+            "value": "${CONSUL_APP_DOMAIN}"
           }],
           "readinessProbe": {
             "httpGet": {
