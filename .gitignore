@@ -28,3 +28,6 @@
 .DS_Store
 .ruby-gemset
 .private
+
+# Deployment artifacts
+scripts/vars.sh
