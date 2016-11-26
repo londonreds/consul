@@ -1,0 +1,43 @@
+#!/bin/bash -e
+
+# util functions and variables
+export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# postgres image
+export POSTGRES_DOCKER_IMAGE=${POSTGRES_DOCKER_IMAGE:="postgres:9.6.1"}
+
+# postgres connection variables
+export POSTGRES_SERVICE_HOST=${POSTGRES_SERVICE_HOST:="postgres"}
+export POSTGRES_SERVICE_USER=${POSTGRES_SERVICE_USER:="SOME_USER"}
+export POSTGRES_SERVICE_PASSWORD=${POSTGRES_SERVICE_PASSWORD:="SOME_PASSWORD"}
+export POSTGRES_SERVICE_DATABASE=${POSTGRES_SERVICE_DATABASE:="SOME_DATABASE"}
+
+# used in /config/secrets.yml
+export SECRET_KEY_BASE=${SECRET_KEY_BASE:="SOME_SECRET"}
+
+# expose the service on what port in the minikube VM
+export MINIKUBE_PORT=${MINIKUBE_PORT:="31589"}
+
+# expose the service on what port on the local host with docker-compose
+export COMPOSE_PORT=${COMPOSE_PORT:="3000"}
+
+# version and image tag settings
+FILEVERSION=$(cat "${DIR}/../version")
+export APPVERSION=${APPVERSION:="$FILEVERSION"}
+
+# the GCR settings
+export GCR_REGION=${GCR_REGION:="eu.gcr.io"}
+export GCR_PROJECT=${GCR_PROJECT:="momentum-mxv"}
+
+# namespace
+export CONSUL_APP_NAMESPACE=${CONSUL_APP_NAMESPACE:="consulapp"}
+
+# people
+export SITE_ADMIN_EMAIL=${SITE_ADMIN_EMAIL:="admin@peoplesmomentum.com"}
+
+# domain
+export CONSUL_APP_DOMAIN=${CONSUL_APP_DOMAIN:="mxv.peoplesmomentum.com"}
+
+# mailgun
+export MAILGUN_API_DOMAIN=${MAILGUN_API_DOMAIN:="SOME MAILGUN DOMAIN"}
+export MAILGUN_API_KEY=${MAILGUN_API_KEY:="SOME MAILGUN API KEY"}
