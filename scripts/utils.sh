@@ -128,7 +128,7 @@ function update() {
 
 function build-images() {
   connect-docker
-  docker build -t ${CONSUL_APP_IMAGE} ${DIR}/..
+  docker build -f ${DIR}/../Dockerfile.app -t ${CONSUL_APP_IMAGE} ${DIR}/..
   docker build -f ${DIR}/../Dockerfile.nginx -t ${CONSUL_NGINX_IMAGE} ${DIR}/..
   echo "built ${CONSUL_APP_IMAGE}"
   echo "built ${CONSUL_NGINX_IMAGE}"

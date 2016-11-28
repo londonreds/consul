@@ -1,12 +1,4 @@
-FROM ruby:2.3.0
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs cron
-RUN mkdir /app
-WORKDIR /app
-
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
-ADD Gemfile_custom /app/Gemfile_custom
-RUN bundle install
+FROM eu.gcr.io/momentum-mxv/base
 
 # crontab setup - the cron jobs need the same codebase as the app
 # so they can run rake tasks so we bake the cron stuff into the app image
