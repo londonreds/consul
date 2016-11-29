@@ -82,6 +82,11 @@ namespace :users do
     User.all.each do |user|
       user.update(password_changed_at: user.created_at)
     end
-  end 
+  end
+
+  desc 'Create a new user - rake user:new_user firstname="" lastname="" email="" mem_number=""'
+  task new_user: :environment do
+    load(Rails.root.join("db", "new_user.rb"))
+  end
 
 end
