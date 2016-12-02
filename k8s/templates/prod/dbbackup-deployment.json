@@ -1,0 +1,58 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "database-backup",
+    "namespace": "${CONSUL_APP_NAMESPACE}"
+  },
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "database-backup"
+        }
+      },
+      "spec": {
+        "containers": [{
+          "name": "consul-database-backup",
+          "image": "binocarlos/gcloud-psql-cron",
+          "imagePullPolicy": "Always",
+          "env": [{
+            "name": "POSTGRES_SERVICE_USER",
+            "value": "${POSTGRES_SERVICE_USER}"
+          }, {
+            "name": "POSTGRES_SERVICE_PASSWORD",
+            "value": "${POSTGRES_SERVICE_PASSWORD}"
+          }, {
+            "name": "POSTGRES_SERVICE_DATABASE",
+            "value": "${POSTGRES_SERVICE_DATABASE}"
+          }, {
+            "name": "SERVICE_ACCOUNT_EMAIL",
+            "value": "${GCR_BACKUP_SERVICE_ACCOUNT}"
+          }, {
+            "name": "SERVICE_ACCOUNT_PROJECT",
+            "value": "${GCR_PROJECT}"
+          }, {
+            "name": "SERVICE_ACCOUNT_STORAGE_BUCKET",
+            "value": "${GCR_BACKUP_STORAGE_BUCKET}"
+          }, {
+            "name": "SERVICE_ACCOUNT_KEY_FILE",
+            "value": "/secrets/database-backup-key.json"
+          }],
+          "volumeMounts": [{
+            "name": "secrets",
+            "mountPath": "/secrets",
+            "readOnly": true
+          }]
+        }],
+        "volumes": [{
+          "name": "secrets",
+          "secret": {
+            "secretName": "db-backup-key"
+          }
+        }]
+      }
+    }
+  }
+}

@@ -45,6 +45,7 @@ function app-command() {
   docker run -it --rm ${EXTRA_APP_DOCKER_ARGS} \
     --network consul_default \
     --link consul_postgres:postgres \
+    -v ${DIR}/../scripts:/app/scripts \
     -e POSTGRES_SERVICE_HOST=${POSTGRES_SERVICE_HOST} \
     -e POSTGRES_SERVICE_USER=${POSTGRES_SERVICE_USER} \
     -e POSTGRES_SERVICE_PASSWORD=${POSTGRES_SERVICE_PASSWORD} \

@@ -337,3 +337,13 @@ Here is the example `crontab`:
 Edit this file and do a build then deploy.  The new crontab will be in operation.
 
 
+#### database backups
+
+There is a k8s pod that will run and every hour take a `psql` dump of the database and upload it to Google cloud storage.
+
+To make this work:
+
+ * create a [service account](https://console.cloud.google.com/iam-admin/iam/project) that has a `Storage -> Storage Object Creator` role
+ * download the `.json` key file and save it as `.private/database-backup-key.json`
+ * `$ kubectl create --namespace=consulapp secret generic db-backup-key --from-file=./.private/database-backup-key.json`
+ * `$ bash scripts/gcloud.sh template k8s/templates/prod/dbbackup-deployment.json | kubectl create -f -`

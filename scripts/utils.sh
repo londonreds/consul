@@ -387,6 +387,7 @@ function main() {
   info)             shift; info $@;;
   cron-logs)        shift; cron-logs $@;;
   worker-logs)      shift; worker-logs $@;;
+  template)         shift; template $@;;
   *)                usage $@;;
   esac
 }
