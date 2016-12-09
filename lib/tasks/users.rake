@@ -5,6 +5,25 @@ namespace :users do
     User.find_each{ |user| User.reset_counters(user.id, :failed_census_calls)}
   end
 
+  desc "Turn on all notifications for all users"
+  task turn_on_notifications_for_all_users: :environment do
+    users = User.where('email_on_comment = false and email_on_comment_reply = false')
+
+    if users.count == 0
+      puts "No users have notifications turned off"
+      next
+    end
+
+    puts "Turning on notifications for #{users.count} users"
+
+    users.each do |user|
+      user.email_on_comment = true
+      user.email_on_comment_reply = true
+      print '.'
+      user.save
+    end
+  end
+
   desc "Assigns official level to users with the officials' email domain"
   task check_for_official_emails: :environment do
     domain = Setting['email_domain_for_officials']
