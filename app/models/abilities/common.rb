@@ -43,9 +43,12 @@ module Abilities
 
       if user.level_two_or_three_verified?
         can :vote, Proposal
+        can :unvote, Proposal
         can :vote_featured, Proposal
+
         can :vote, SpendingProposal
         can :create, SpendingProposal
+
         can :create, DirectMessage
         can :show, DirectMessage, sender_id: user.id
       end

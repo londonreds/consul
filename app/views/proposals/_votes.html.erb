@@ -20,6 +20,11 @@
     <% if voted_for?(@proposal_votes, proposal) %>
       <div class="supported">
         <%= t("proposals.proposal.already_supported") %>
+        <%= link_to unvote_url,
+            class: "button button-support small expanded",
+            title: t('proposals.proposal.unsupport_title'), method: "post", remote: true do %>
+          <%= t("proposals.proposal.unsupport") %>
+        <% end %>
       </div>
     <% else %>
       <%= link_to vote_url,

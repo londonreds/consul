@@ -128,6 +128,12 @@ class Proposal < ActiveRecord::Base
     end
   end
 
+  def unregister_vote(user)
+    if votable_by?(user) && !archived? && user.voted_for?(self)
+      unvote_by(user)
+    end
+  end
+
   def code
     "#{Setting["proposal_code_prefix"]}-#{created_at.strftime('%Y-%m')}-#{id}"
   end

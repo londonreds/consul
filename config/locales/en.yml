@@ -337,6 +337,7 @@ en:
       start_new: Create new proposal
     notice:
       retired: Proposal retired
+      unsupported: You unsupported this proposal.
     proposal:
       already_supported: You have supported this proposal. Share it!
       comments:
@@ -347,6 +348,8 @@ en:
       reason_for_supports_necessary: 2% of Census
       support: Support
       support_title: Support this proposal
+      unsupport: Unsupport
+      unsupport_title: Unsupport this proposal
       supports:
         one: 1 supporter
         other: "%{count} supporters"

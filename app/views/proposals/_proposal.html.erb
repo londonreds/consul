@@ -68,7 +68,11 @@
         <% else %>
           <div class="text-center">
             <%= render 'votes',
-                      { proposal: proposal, vote_url: vote_proposal_path(proposal, value: 'yes') } %>
+                      { proposal: proposal,
+                        vote_url: vote_proposal_path(proposal, value: 'yes'),
+                        unvote_url: unvote_proposal_path(proposal)
+                      }
+                      %>
           </div>
         <% end %>
       </div>

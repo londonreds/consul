@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   resources :proposals do
     member do
       post :vote
+      post :unvote
       post :vote_featured
       put :flag
       put :unflag
@@ -258,6 +259,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :proposals, only: [:index, :new, :create, :show] do
       post :vote, on: :member
+      post :unvote, on: :member
       get :print, on: :collection
     end
 
