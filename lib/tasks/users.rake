@@ -6,7 +6,7 @@ namespace :users do
   end
 
   desc "Turn on all notifications for all users"
-  task turn_on_notifactions_for_all_users: :environment do
+  task turn_on_notifications_for_all_users: :environment do
     users = User.where('email_on_comment = false and email_on_comment_reply = false')
 
     if users.count == 0
