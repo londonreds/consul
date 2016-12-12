@@ -9,6 +9,13 @@ en:
       title: New comment
     config:
       manage_email_subscriptions: To stop receiving these emails change your settings in
+    proposal:
+      hi: Hi
+      edit:
+        title: Proposal changed
+        introduction: The proposer of %{title} has edited their proposal on MxV.
+        why: We're letting you know because you are a supporter of this proposal.
+        do_you_disagree: 'You can see the changes, make comments and undo your support if you disagree here:'
     email_verification:
       click_here_to_verify: this link
       instructions_2_html: This email will verify your account with <b>%{document_type} %{document_number}</b>. If these don't belong to you, please don't click on the previous link and ignore this email.
