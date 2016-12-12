@@ -34,7 +34,7 @@ class ProposalsController < ApplicationController
 
   def update
     super
-    CommentNotifier.new(comment: @proposal).process
+    ProposalNotifier.new(proposal: @proposal).process
   end
 
   def index_customization
