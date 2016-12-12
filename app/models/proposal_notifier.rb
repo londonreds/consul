@@ -12,6 +12,15 @@ class ProposalNotifier
   private
 
   def send_email_to_commenters
+    unique_commenters = @proposal.comments.collect(&:author).uniq{|author| author.id}
+
+    unique_commenters.each do | commenter |
+      if @proposal.author.id == commenter.id
+        next
+      end
+
+      ProposalMailer.edit(commenter, @proposal).deliver_later if email_on_comment?
+    end
   end
 
   def send_email_to_supporters
@@ -24,4 +33,7 @@ class ProposalNotifier
     true
   end
 
+  def email_on_comment?
+    true
+  end
 end
