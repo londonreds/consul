@@ -3,19 +3,14 @@ class ProposalMailer < ApplicationMailer
   helper :mailer
   helper :users
 
-  def edit(proposal)
+  def edit(voter, proposal)
     @proposal = proposal
     @last_version = proposal.versions.last.reify
-    voters = proposal.voters
+    @voter = voter
 
-    voters.each  do | voter |
-      with_user(voter) do
-        @voter = voter
-        mail(to: voter.email, subject: "Proposal #{@last_version.title} you supported has been changed")
-      end
+    with_user(@voter) do
+      mail(to: voter.email, subject: "Proposal #{@last_version.title} you supported has been changed")
     end
-
-    unique_commenters = proposal.comments.collect(&:author).uniq{|author| author.id}
   end
 
   private

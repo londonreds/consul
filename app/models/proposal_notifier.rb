@@ -15,7 +15,9 @@ class ProposalNotifier
   end
 
   def send_email_to_supporters
-    ProposalMailer.edit(@proposal).deliver_later if email_on_edit?
+    @proposal.voters.each  do | voter |
+      ProposalMailer.edit(voter, @proposal).deliver_later if email_on_edit?
+    end
   end
 
   def email_on_edit?
