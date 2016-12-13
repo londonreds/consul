@@ -85,6 +85,24 @@
             <% end %>
           </div>
 
+          <div>
+            <%= f.label :email_on_proposal_edit do %>
+              <%= f.check_box :email_on_proposal_edit, title: t('account.show.email_on_proposal_edit_label'), label: false %>
+              <span class="checkbox">
+                <%= t("account.show.email_on_proposal_edit_label") %>
+              </span>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.label :email_on_proposal_edit_as_commenter do %>
+              <%= f.check_box :email_on_proposal_edit_as_commenter, title: t('account.show.email_on_proposal_edit_as_commenter_label'), label: false %>
+              <span class="checkbox">
+                <%= t("account.show.email_on_proposal_edit_as_commenter_label") %>
+              </span>
+            <% end %>
+          </div>
+
           <% if @account.official_level == 1 %>
             <div>
               <%= f.label :official_position_badge do %>
