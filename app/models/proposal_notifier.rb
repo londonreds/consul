@@ -15,25 +15,23 @@ class ProposalNotifier
     unique_commenters = @proposal.comments.collect(&:author).uniq{|author| author.id}
 
     unique_commenters.each do | commenter |
-      if @proposal.author.id == commenter.id
-        next
-      end
-
+      @commenter = commenter
       ProposalMailer.edit(commenter, @proposal).deliver_later if email_on_comment?
     end
   end
 
   def send_email_to_supporters
     @proposal.voters.each  do | voter |
-      ProposalMailer.edit(voter, @proposal).deliver_later if email_on_edit?
+      @current_voter = voter
+      ProposalMailer.edit(@current_voter, @proposal).deliver_later if email_on_edit?
     end
   end
 
   def email_on_edit?
-    true
+    @current_voter.email_on_proposal_edit?
   end
 
   def email_on_comment?
-    true
+    @author != @commenter && @commenter.email_on_proposal_edit_as_commenter?
   end
 end
