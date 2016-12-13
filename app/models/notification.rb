@@ -30,6 +30,8 @@ class Notification < ActiveRecord::Base
       notifiable.proposal.title
     when "Proposal"
       notifiable.title
+    when "PaperTrail::Version"
+      notifiable.item.title
     when "Comment"
       notifiable.commentable.title
     else
@@ -41,7 +43,7 @@ class Notification < ActiveRecord::Base
     case notifiable_type
     when "ProposalNotification"
       "proposal_notification"
-    when "Proposal"
+    when "PaperTrail::Version"
       "edited"
     when "Comment"
       "replies_to"
@@ -51,6 +53,12 @@ class Notification < ActiveRecord::Base
   end
 
   def linkable_resource
-    notifiable.is_a?(ProposalNotification) ? notifiable.proposal : notifiable
+    if notifiable.is_a?(ProposalNotification)
+      notifiable.proposal
+    elsif notifiable.is_a?(PaperTrail::Version)
+      notifiable.item
+    else
+      notifiable
+    end
   end
 end

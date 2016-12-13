@@ -38,7 +38,7 @@ class ProposalsController < ApplicationController
     ProposalNotifier.new(proposal: @proposal).process
 
     @proposal.voters.each do |voter|
-      Notification.add(voter.id, @proposal) unless voter.id == @proposal.author.id
+      Notification.add(voter.id, @proposal.versions.last) unless voter.id == @proposal.author.id
     end
   end
 
