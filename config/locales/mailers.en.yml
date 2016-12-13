@@ -14,7 +14,9 @@ en:
       edit:
         title: Proposal changed
         introduction: The proposer of %{title} has edited their proposal on MxV.
-        why: We're letting you know because you are a supporter of this proposal.
+        why:
+          you_are_supporter: We're letting you know because you are a supporter of this proposal.
+          you_are_commenter: We're letting you know because you commented on this proposal.
         do_you_disagree: 'You can see the changes, make comments and undo your support if you disagree here:'
     email_verification:
       click_here_to_verify: this link

@@ -10,12 +10,21 @@
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
     <%= t("mailers.proposal.edit.introduction", title: @proposal.title) %>
-    <%= t("mailers.proposal.edit.why") %>
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <% if @is_comment %>
+    <%= t("mailers.proposal.edit.why.you_are_commenter") %>
+    <% else %>
+    <%= t("mailers.proposal.edit.why.you_are_supporter") %>
+    <% end %>
+  </p>
+
+  <% if ! @is_comment %>
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
     <%= t("mailers.proposal.edit.do_you_disagree") %>
   </p>
+  <% end %>
 
   <%= link_to @proposal.title, proposal_url(@proposal), style: "font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;" %>
 

@@ -16,7 +16,7 @@ class ProposalNotifier
 
     unique_commenters.each do | commenter |
       @commenter = commenter
-      ProposalMailer.edit(commenter, @proposal).deliver_later if email_on_comment?
+      ProposalMailer.edit(commenter, @proposal, true).deliver_later if email_on_comment?
     end
   end
 
@@ -28,10 +28,12 @@ class ProposalNotifier
   end
 
   def email_on_edit?
-    @current_voter.email_on_proposal_edit?
+    @current_voter.email_on_proposal_edit? && @current_voter != @author
   end
 
   def email_on_comment?
+    # If the commenter is also a supporter, don't email them.
+
     @author != @commenter && @commenter.email_on_proposal_edit_as_commenter?
   end
 end
