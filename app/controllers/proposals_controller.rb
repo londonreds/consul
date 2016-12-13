@@ -35,6 +35,10 @@ class ProposalsController < ApplicationController
   def update
     super
     ProposalNotifier.new(proposal: @proposal).process
+
+    @proposal.voters.each do |voter|
+      Notification.add(voter.id, @proposal) unless voter == @proposal.author
+    end
   end
 
   def index_customization
