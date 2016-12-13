@@ -32,7 +32,7 @@ class ProposalNotifier
   end
 
   def email_on_comment?
-    return false if proposal.voters.include? @commenter
+    return false if @proposal.voters.include? @commenter
 
     @author != @commenter && @commenter.email_on_proposal_edit_as_commenter?
   end
