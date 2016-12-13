@@ -28,6 +28,8 @@ class Notification < ActiveRecord::Base
     case notifiable.class.name
     when "ProposalNotification"
       notifiable.proposal.title
+    when "Proposal"
+      notifiable.title
     when "Comment"
       notifiable.commentable.title
     else
@@ -39,6 +41,8 @@ class Notification < ActiveRecord::Base
     case notifiable_type
     when "ProposalNotification"
       "proposal_notification"
+    when "Proposal"
+      "edited"
     when "Comment"
       "replies_to"
     else

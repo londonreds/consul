@@ -5,6 +5,8 @@ en:
       change_credentials_link: Change my password
       email_on_comment_label: Notify me by email when someone comments on my proposals
       email_on_comment_reply_label: Notify me by email when someone replies to my comments
+      email_on_proposal_edit_label: Notify me by email when someone edits a proposal I have supported
+      email_on_proposal_edit_as_commenter_label: Notify me by email when a proposal I have commented on is edited
       erase_account_link: Erase my account
       finish_verification: Complete verification
       notifications: Notifications
@@ -225,6 +227,7 @@ en:
       comments_on:
         one: Someone commented on
         other: There are %{count} new comments on
+      edited: The proposer edited
       empty_notifications: You don't have new notifications.
       mark_all_as_read: Mark all as read
       proposal_notification:
